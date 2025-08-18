@@ -27,6 +27,8 @@ COPY ./dist /opt/app/dist
 COPY ./src /opt/app/src
 COPY app-builder.config.ts tsconfig.json /opt/app/
 
+COPY patch .
+
 RUN npm run build && chown app /opt/app/dist/run
 
 # runtime base image for both platform
